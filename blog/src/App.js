@@ -63,7 +63,7 @@ function App() {
               <span onClick={()=>{  따봉변경(따봉 + 1) } }>👍</span>
               </h4>
               <p>2월 17일 발행</p>
-                
+                dsadasd
               <hr/>
            </div>)
            
