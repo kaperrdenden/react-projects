@@ -1,7 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import {Navbar, Container, Nav, NavDropdown} from "react-bootstrap";
+import { useState } from 'react';
+import Data from "./data.js";
+
 function App() {
+
+  let [shoes, shoes변경] = useState(Data);
+
+  console.log(shoes);
   return (
     <div className="App">
       <Navbar bg="light" expand="lg">
@@ -32,32 +39,30 @@ function App() {
       aksdhjaskdhkajsd
       kasdnhaslkdjnaksdjnasdsdlkjnasd sdfnmlksd fklsdjfnjklsdnf kskfdjsdf
     </p>
-    <button type="button" class="btn btn-primary">Primary</button>
+    <button type="button" className="btn btn-primary">Primary</button>
 </div>
 
 <div className='container'>
     <div className='row'>
-      <div className='col-md-4'>
-        <img src="https://codingapple1.github.io/shop/shoes1.jpg"width="100%"/>
-            <h4>상품명</h4>
-            <p>상품설명 & 가격</p>
-      </div>
-      <div className='col-md-4'>
-      
-        <img src="https://codingapple1.github.io/shop/shoes2.jpg"width="100%"/>
-        <h4>상품명</h4>
-        <p>상품설명 & 가격</p>
-      </div>
-      <div className='col-md-4'>
-     
-        <img src="https://codingapple1.github.io/shop/shoes3.jpg"width="100%"/>
-      <h4>상품명</h4>
-      <p>상품설명 & 가격</p>
-      </div>
+      {shoes.map((shoe,i) => {
+        return(
+          <Card shoe={shoe} i={i} key={i} />
+        )
+      })}
     </div>
 </div>
     </div>
   );
 }
-
+function Card(props){
+  return(
+ 
+    <div className='col-md-4'>
+     
+      <img src={"https://codingapple1.github.io/shop/shoes" + (props.i + 1) + ".jpg"} width="100%"/>
+    <h4>{props.shoe.title}</h4>
+    <p>{props.shoe.price}</p>
+  </div>
+  )
+}
 export default App;
