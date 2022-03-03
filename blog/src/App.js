@@ -40,7 +40,7 @@ function App() {
         {
           글제목.map(function(글, i){
             return (
-             <div className="list">
+             <div className="list" key={i}>
                 <h4 onClick={ ()=>{ 누른제목변경(i) } }> {글} 
                   <span onClick={()=>{  따봉변경(따봉 + 1) } }>👍</span>
                 </h4>
