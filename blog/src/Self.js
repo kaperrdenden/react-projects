@@ -54,7 +54,7 @@ function Self() {
         {
           article.map(function(article, i){
             return (
-             <div className="list" key={i}>
+             <div className="list" key={i} onClick={ ()=>{ 누른제목변경(i) } }>
                 <h4 onClick={ ()=>{ 누른제목변경(i) } }> {article.title} 
                   <span onClick={()=>{  따봉변경(따봉 + 1) } }>👍</span>
                 </h4>
@@ -110,7 +110,7 @@ function Self() {
         <button onClick={  ()=>{ 누른제목변경(2) } }>버튼3</button>
         {
           modal === true
-          ? <Modal 글제목={글제목} 누른제목={누른제목} />
+          ? <Modal article={article} 누른제목={누른제목} />
           : null
         }
     
@@ -122,8 +122,8 @@ function Self() {
 function Modal(props){
   return(
   <div className='modal'>
-    <h2>{props.글제목[props.누른제목]}</h2>
-    <p>날짜</p>
+    <h2>{props.article[props.누른제목].title}</h2>
+    <p>날짜: {props.article[props.누른제목].date}</p>
     <p>상세내용</p>
   </div>
   )
