@@ -11,6 +11,8 @@ function App() {
   let [modal, modal변경] = useState(false);
   let [누른제목, 누른제목변경] = useState(0);
 
+
+  let [입력값, 입력값변경] = useState('');
   function 제목바꾸기(){
     let coppiedArray = [...글제목];
     coppiedArray[0] = "여자 코트 추천";
@@ -51,6 +53,11 @@ function App() {
            
           })
         }
+
+        {입력값}
+        <input  value={입력값}  onChange={(e)=>{
+           입력값변경(e.target.value);  
+           } } />
 
         <button onClick={ ()=> {modal변경(!modal) }}>열고닫기</button>
         <button onClick={ ()=>{ 누른제목변경(0) } }>버튼1</button>
