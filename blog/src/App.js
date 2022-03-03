@@ -53,11 +53,23 @@ function App() {
            
           })
         }
-
+{/* 
         {입력값}
         <input  value={입력값}  onChange={(e)=>{
            입력값변경(e.target.value);  
-           } } />
+           } } /> */}
+
+        <div className="publish">
+           <input onChange={ (e)=>{
+              입력값변경(e.target.value)
+           }} />
+           <button onClick={()=>{
+             const coppiedArray = [...글제목];
+             coppiedArray.unshift(입력값);
+             console.log(coppiedArray)
+             글제목변경(coppiedArray);
+               }}>저장</button>
+        </div>
 
         <button onClick={ ()=> {modal변경(!modal) }}>열고닫기</button>
         <button onClick={ ()=>{ 누른제목변경(0) } }>버튼1</button>
