@@ -4,6 +4,7 @@ import {Navbar, Container, Nav, NavDropdown} from "react-bootstrap";
 import { useState } from 'react';
 import Data from "./data.js";
 
+import { Link, Route, Switch } from 'react-router-dom';
 function App() {
 
   let [shoes, shoes변경] = useState(Data);
