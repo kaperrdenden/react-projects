@@ -31,6 +31,13 @@ function App() {
     </Navbar.Collapse>
   </Container>
 </Navbar>
+
+<Route path="/"><div>
+  메인페이지</div></Route>
+<Route path="/detail">
+  <div>디테일페이지예요</div>
+</Route>
+
   <div className='jumbotron'>
     <h1>20%</h1>
     <p>
