@@ -19,8 +19,8 @@ function App() {
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
-        <Nav.Link href="#home">Home</Nav.Link>
-        <Nav.Link href="#link">Link</Nav.Link>
+        <Nav.Link> <Link to="/"> Home</Link></Nav.Link>
+        <Nav.Link> <Link to="/detail">Detail</Link></Nav.Link>
         <NavDropdown title="Dropdown" id="basic-nav-dropdown">
           <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
           <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -32,36 +32,39 @@ function App() {
     </Navbar.Collapse>
   </Container>
 </Navbar>
-
-<Route exact path="/">
-  <div className='jumbotron'>
-      <h1>20%</h1>
-      <p>
-        fmnwokfdejksdlfnm
-        asdkalsdlaskdlasd
-        dsklajshdklasdkjasd
-        aksdhjaskdhkajsd
-        kasdnhaslkdjnaksdjnasdsdlkjnasd sdfnmlksd fklsdjfnjklsdnf kskfdjsdf
-      </p>
-      <button type="button" className="btn btn-primary">Primary</button>
-  </div>
-  <div className='container'>
-      <div className='row'>
-        {shoes.map((shoe,i) => {
-          return(
-            <Card shoe={shoe} i={i} key={i} />
-          )
-        })}
-      </div>
-  </div>
+<Switch>
+  <Route exact path="/">
+    <div className='jumbotron'>
+        <h1>20%</h1>
+        <p>
+          fmnwokfdejksdlfnm
+          asdkalsdlaskdlasd
+          dsklajshdklasdkjasd
+          aksdhjaskdhkajsd
+          kasdnhaslkdjnaksdjnasdsdlkjnasd sdfnmlksd fklsdjfnjklsdnf kskfdjsdf
+        </p>
+        <button type="button" className="btn btn-primary">Primary</button>
+    </div>
+    <div className='container'>
+        <div className='row'>
+          {shoes.map((shoe,i) => {
+            return(
+              <Card shoe={shoe} i={i} key={i} />
+            )
+          })}
+        </div>
+    </div>
+    </Route>
+  <Route path="/detail">
+          <Detail shoes={shoes} />
   </Route>
-<Route path="/detail">
-        <Detail />
-</Route>
-{/* <Route path="/어쩌구" component={Modal}></Route> */}
- 
+  {/* <Route path="/어쩌구" component={Modal}></Route> */}
+  
+  <Route path="/:id">
+          <div> 아무거나 적었을때</div>
+  </Route>
 
-
+ </Switch>
     </div>
   );
 }
