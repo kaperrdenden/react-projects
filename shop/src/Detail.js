@@ -29,6 +29,11 @@ function Detail(props ){
       <박스>
         <제목 className='red' >상세페이지</제목>
       </박스>
+      <div className='my-alert2'>
+          <p>
+              재고가 얼마 남지 않았습니다
+          </p>
+      </div>
       <div className="row">
         <div className="col-md-6">
           <img src={"https://codingapple1.github.io/shop/shoes" + id + ".jpg" } width="100%" />
