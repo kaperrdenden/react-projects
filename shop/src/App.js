@@ -55,14 +55,14 @@ function App() {
         </div>
     </div>
     </Route>
-  <Route path="/detail">
+  <Route path="/detail/:id">
           <Detail shoes={shoes} />
   </Route>
   {/* <Route path="/어쩌구" component={Modal}></Route> */}
   
-  <Route path="/:id">
+  {/* <Route path="/:id">
           <div> 아무거나 적었을때</div>
-  </Route>
+  </Route> */}
 
  </Switch>
     </div>
