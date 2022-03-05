@@ -1,5 +1,13 @@
 import React, {useState} from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import styled from 'styled-components';
+
+let 박스 = styled.div`
+    padding: 20px;
+`;
+let Ab = styled.div`
+    background-color: blue;
+`;
 function Detail(props ){
 
     let { id } = useParams();
@@ -13,6 +21,8 @@ function Detail(props ){
     // console.log(sellectedShoe);
     return(
       <div className="container">
+          <Ab>dsa</Ab>
+      {/* <박스>ㅇㄴㅁㅇㄴㅇㄴㅁ</박스> */}
       <div className="row">
         <div className="col-md-6">
           <img src={"https://codingapple1.github.io/shop/shoes" + id + ".jpg" } width="100%" />
