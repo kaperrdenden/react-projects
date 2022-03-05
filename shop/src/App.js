@@ -32,33 +32,47 @@ function App() {
   </Container>
 </Navbar>
 
-<Route path="/"><div>
-  메인페이지</div></Route>
-<Route path="/detail">
-  <div>디테일페이지예요</div>
-</Route>
-
+<Route exact path="/">
   <div className='jumbotron'>
-    <h1>20%</h1>
-    <p>
-      fmnwokfdejksdlfnm
-      asdkalsdlaskdlasd
-      dsklajshdklasdkjasd
-      aksdhjaskdhkajsd
-      kasdnhaslkdjnaksdjnasdsdlkjnasd sdfnmlksd fklsdjfnjklsdnf kskfdjsdf
-    </p>
-    <button type="button" className="btn btn-primary">Primary</button>
-</div>
+      <h1>20%</h1>
+      <p>
+        fmnwokfdejksdlfnm
+        asdkalsdlaskdlasd
+        dsklajshdklasdkjasd
+        aksdhjaskdhkajsd
+        kasdnhaslkdjnaksdjnasdsdlkjnasd sdfnmlksd fklsdjfnjklsdnf kskfdjsdf
+      </p>
+      <button type="button" className="btn btn-primary">Primary</button>
+  </div>
+  <div className='container'>
+      <div className='row'>
+        {shoes.map((shoe,i) => {
+          return(
+            <Card shoe={shoe} i={i} key={i} />
+          )
+        })}
+      </div>
+  </div>
+  </Route>
+<Route path="/detail">
+  <div className="container">
+        <div className="row">
+          <div className="col-md-6">
+            <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
+          </div>
+          <div className="col-md-6 mt-4">
+            <h4 className="pt-5">상품명</h4>
+            <p>상품설명</p>
+            <p>120000원</p>
+            <button className="btn btn-danger">주문하기</button> 
+          </div>
+        </div>
+  </div>
+</Route>
+{/* <Route path="/어쩌구" component={Modal}></Route> */}
+ 
 
-<div className='container'>
-    <div className='row'>
-      {shoes.map((shoe,i) => {
-        return(
-          <Card shoe={shoe} i={i} key={i} />
-        )
-      })}
-    </div>
-</div>
+
     </div>
   );
 }
