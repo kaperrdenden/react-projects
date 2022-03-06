@@ -1,10 +1,5 @@
 export default [
-    {
-        id : 2,
-        title : "Grey Yordan",
-        content : "Born in the States",
-        price : 130000
-      },
+  
     {
       id : 0,
       title : "White and Black",
@@ -18,6 +13,10 @@ export default [
       content : "Born in Seoul",
       price : 110000
     },
-  
-
+    {
+        id : 2,
+        title : "Grey Yordan",
+        content : "Born in the States",
+        price : 130000
+      },
   ] 

@@ -4,6 +4,7 @@ import {Navbar, Container, Nav, NavDropdown} from "react-bootstrap";
 import { useState } from 'react';
 import Data from "./data.js";
 import Detail from './Detail';
+import axios from 'axios';
 
 import { Link, Route, Switch } from 'react-router-dom';
 function App() {
@@ -53,6 +54,27 @@ function App() {
             )
           })}
         </div>
+        <button className="btn btn-primary" 
+          onClick={()=>{
+            axios.get('https://codingapple1.github.io/shop/data2.json')
+            .then((result)=>{ 
+              let coppiedArray = [...shoes];
+
+              // coppiedArray.push([...result.data])
+              coppiedArray.push(...result.data);
+              // console.log(...result.data,[...shoes])
+              // console.log(coppiedArray,result.data);
+
+              shoes변경(coppiedArray);
+             
+            }) //데이터를 가져오는데에 성공했을 경우
+            .catch(()=>{
+              console.log('실패');
+             }) // 실패했을경우
+            ;
+
+          }}
+        >더보기</button>
     </div>
     </Route>
   <Route path="/detail/:id">
