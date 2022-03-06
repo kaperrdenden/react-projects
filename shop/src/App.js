@@ -58,14 +58,8 @@ function App() {
           onClick={()=>{
             axios.get('https://codingapple1.github.io/shop/data2.json')
             .then((result)=>{ 
-              let coppiedArray = [...shoes];
-
-              // coppiedArray.push([...result.data])
-              coppiedArray.push(...result.data);
-              // console.log(...result.data,[...shoes])
-              // console.log(coppiedArray,result.data);
-
-              shoes변경(coppiedArray);
+            
+              shoes변경([...shoes, ...result.data]);
              
             }) //데이터를 가져오는데에 성공했을 경우
             .catch(()=>{
