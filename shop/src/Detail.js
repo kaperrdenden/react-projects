@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import { 재고context } from './App';
 import './Detail.scss';
 
 let 박스 = styled.div`
@@ -15,8 +16,12 @@ let 제목 = styled.h4`
 
 
 function Detail(props ){
+
+
     let [alert , setAlert] = useState(true);
     let [input, setInput] = useState('');
+    let 재고 = useContext(재고context);
+
     useEffect(()=>{
 
 

@@ -1,12 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import {Navbar, Container, Nav, NavDropdown} from "react-bootstrap";
-import { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Data from "./data.js";
 import Detail from './Detail';
 import axios from 'axios';
-
 import { Link, Route, Switch } from 'react-router-dom';
+export let 재고context = React.createContext();
+
 function App() {
 
   let [shoes, shoes변경] = useState(Data);
@@ -49,6 +50,8 @@ function App() {
         <button type="button" className="btn btn-primary">Primary</button>
     </div>
     <div className='container'>
+
+      <재고context.Provider value={재고}>
         <div className='row'>
           {shoes.map((shoe,i) => {
             return(
@@ -56,6 +59,7 @@ function App() {
             )
           })}
         </div>
+      </재고context.Provider>
         <button className="btn btn-primary" 
           onClick={()=>{
 
@@ -78,7 +82,9 @@ function App() {
     </div>
     </Route>
   <Route path="/detail/:id">
-          <Detail shoes={shoes} 재고={재고} 재고변경={재고변경} />
+          <재고context.Provider value={재고}>
+            <Detail shoes={shoes} 재고={재고} 재고변경={재고변경} />
+          </재고context.Provider>
   </Route>
   {/* <Route path="/어쩌구" component={Modal}></Route> */}
   
@@ -93,6 +99,9 @@ function App() {
 
 
 function Card(props){
+  
+  let 재고 = useContext(재고context);
+  
   return(
  
     <div className='col-md-4'>
@@ -100,7 +109,15 @@ function Card(props){
       <img src={"https://codingapple1.github.io/shop/shoes" + (props.i + 1) + ".jpg"} width="100%"/>
     <h4>{props.shoe.title}</h4>
     <p>{props.shoe.price}</p>
+   <Text/>
+    
   </div>
+  )
+}
+function Text(){
+  let 재고 = useContext(재고context);
+  return(
+    <p>재고: {재고}</p>
   )
 }
 export default App;
