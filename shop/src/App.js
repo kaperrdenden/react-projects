@@ -10,6 +10,8 @@ import { Link, Route, Switch } from 'react-router-dom';
 function App() {
 
   let [shoes, shoes변경] = useState(Data);
+  let [재고,재고변경] = useState([10,11,12]);
+
 
   console.log(shoes);
   return (
@@ -56,6 +58,10 @@ function App() {
         </div>
         <button className="btn btn-primary" 
           onClick={()=>{
+
+             
+            // axios.post('서버URL', {id: 'hello', pw : 1234}).then;
+
             axios.get('https://codingapple1.github.io/shop/data2.json')
             .then((result)=>{ 
             
@@ -72,7 +78,7 @@ function App() {
     </div>
     </Route>
   <Route path="/detail/:id">
-          <Detail shoes={shoes} />
+          <Detail shoes={shoes} 재고={재고} 재고변경={재고변경} />
   </Route>
   {/* <Route path="/어쩌구" component={Modal}></Route> */}
   
