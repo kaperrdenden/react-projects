@@ -9,7 +9,10 @@ import { BrowserRouter,HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import {createStore} from 'redux';
 let store = createStore( ()=>{
-  return [{id : 0, name : '멋진신발', quan: 2}]
+  return [
+    {id : 0, name : '멋진신발', quan: 2},
+    {id : 1, name : '안멋진신발', quan: 5}
+]
 } );
 
 ReactDOM.render(

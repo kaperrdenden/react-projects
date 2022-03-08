@@ -16,15 +16,21 @@ function Cart(props){
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>{props.state[0].name}</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-      </tr>
+        
+        {
+            props.state.map((item, i)=>{
+                return(
+                    <tr key={i}>
+                    <td>1</td>
+                    <td>{item.name}</td>
+                    <td>{item.quan}</td>
+                    <td>Table cell</td>
+               
+                  </tr>
+                )
+            })
+        }
+   
       
     </tbody>
   </Table>
