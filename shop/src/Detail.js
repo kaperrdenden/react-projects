@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { 재고context } from './App';
+import { Nav } from 'react-bootstrap';
 import './Detail.scss';
 
 let 박스 = styled.div`
@@ -20,6 +21,9 @@ function Detail(props ){
 
     let [alert , setAlert] = useState(true);
     let [input, setInput] = useState('');
+
+    let [누른탭, 누른탭변경] = useState(0);
+
     let 재고 = useContext(재고context);
 
     useEffect(()=>{
@@ -80,11 +84,49 @@ function Detail(props ){
           }>주문하기</button> 
           <button className="btn btn-danger" onClick={()=>{
               history.push('/asdasdasd');
-          }}>주문하기</button> 
+          }}>뒤로가기</button> 
         </div>
       </div>
+    <Nav className="mt-5" variant="tabs" defaultActiveKey="link-0">
+        <Nav.Item>
+            <Nav.Link
+             eventKey="link-0"
+             onClick={()=>{
+                 누른탭변경(0);
+             }} 
+             >
+             
+                 Active</Nav.Link>
+            {/* 버튼들마다 유니크한 eventKey를 부여해줄 수가 있다.(부트스트랩 문법이다.) */}
+
+        </Nav.Item>
+        <Nav.Item>
+            <Nav.Link
+                eventKey="link-1"
+                onClick={()=>{
+                    누른탭변경(1);
+                }} >
+                  Option 2</Nav.Link>
+        </Nav.Item>
+     
+    </Nav>
+    <TabContent 누른탭={누른탭} />
   </div>
     )
+  }
+
+
+  function TabContent(props){
+
+    if(props.누른탭 === 0){
+        return  <div>0번째 내용입니다</div>
+    } else if (props.누른탭 === 1){
+        return  <div>1번째 내용입니다</div>
+    }
+   
+   
+  
+
   }
 
   function Info(props){
