@@ -8,12 +8,30 @@ import { BrowserRouter,HashRouter } from 'react-router-dom';
  
 import { Provider } from 'react-redux';
 import {createStore} from 'redux';
-let store = createStore( ()=>{
-  return [
-    {id : 0, name : '멋진신발', quan: 2},
-    {id : 1, name : '안멋진신발', quan: 5}
+
+let 기본state = [
+  {id : 0, name: '멋진신발', quan: 2},
+  {id : 1, name: '멋진신발', quan: 2},
 ]
-} );
+
+function reducer(state = 기본state, 액션){
+              // state = 기본state 이건 dafault 파라미터 문법. 데이터초기값
+    if ( 액션.type === '수량증가' ){
+      let coppiedArray = [...state];
+      coppiedArray[0].quan++;
+
+      return coppiedArray;
+    } else {
+      return 기본state;
+    }
+      
+      
+        
+  
+}
+
+let store = createStore(reducer);
+
 
 ReactDOM.render(
   <React.StrictMode>

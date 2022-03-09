@@ -20,13 +20,16 @@ function Cart(props){
         {
             props.state.map((item, i)=>{
                 return(
-                    <tr key={i}>
-                    <td>1</td>
+                   <tr key={i}>
+                    <td>{item.id}</td>
                     <td>{item.name}</td>
                     <td>{item.quan}</td>
-                    <td>Table cell</td>
-               
-                  </tr>
+                    <td>
+                        <button onClick={()=> {  }}>+</button>
+
+                    </td>
+                    
+                   </tr>
                 )
             })
         }
