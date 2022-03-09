@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import {Navbar, Container, Nav, NavDropdown} from "react-bootstrap";
-import React, { useContext, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import Data from "./data.js";
 import Detail from './Detail';
 import axios from 'axios';
@@ -15,6 +15,7 @@ function App() {
   let [shoes, shoes변경] = useState(Data);
   let [재고,재고변경] = useState([10,11,12]);
 
+  let itemIdCount = useRef(3);
 
   console.log(shoes);
   return (
@@ -85,7 +86,9 @@ function App() {
     </Route>
   <Route path="/detail/:id">
           <재고context.Provider value={재고}>
-            <Detail shoes={shoes} 재고={재고} 재고변경={재고변경} />
+            <Detail shoes={shoes} 재고={재고} 재고변경={재고변경}
+              itemIdCount={itemIdCount}
+            />
           </재고context.Provider>
   </Route>
 

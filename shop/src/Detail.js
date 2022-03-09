@@ -29,7 +29,10 @@ function Detail(props ){
     let [누른탭, 누른탭변경] = useState(0);
     let [스위치, 스위치변경] = useState(false);
     let 재고 = useContext(재고context);
-
+    let [order, setOrder] = useState({
+        itemTitle : '',
+        itemQuan: '',
+    })
     useEffect(()=>{
 
 
@@ -75,21 +78,50 @@ function Detail(props ){
           <img src={"https://codingapple1.github.io/shop/shoes" + id + ".jpg" } width="100%" />
         </div>
         <div className="col-md-6 mt-4">
-          <h4 className="pt-5 red">{찾은상품.title}</h4>
-          <p>{찾은상품.content}</p>
-          <p>{찾은상품.price}</p>
 
+          <form>
+              <input
+                placeholder='상품명' 
+                onChange={(e)=>{
+                    setOrder({
+                        ...order,
+                        itemTitle:e.target.value
+                    });
+                    console.log(order.itemTitle);
+                }}
+              />
+              <p>{찾은상품.content}</p>
+              <input 
+                placeholder='수량'
+                onChange={(e)=>{
+                    setOrder({
+                        ...order,
+                        itemQuan:e.target.value
+                    });
+                    console.log(order);
+                }}
+                />
+       
+            {/* <h4 className="pt-5 red">{찾은상품.title}</h4> */}
+            
+            {/* <p>{찾은상품.price}</p> */}
+          </form>
           <Info 재고={props.재고}></Info>
 
           <button className="btn btn-danger" onClick={
               ()=>{
                   props.재고변경([9,10,11]);
-                  props.dispatch({type: '항목추가', payload: {id:2, name:'새로운 상품',
-                    quan: 1
+                  props.dispatch({type: '항목추가', payload: {id:props.itemIdCount.current, name:order.itemTitle,
+                    quan: order.itemQuan
                 }
                 
             });
+            props.itemIdCount.current++;
             history.push('/cart');
+            // history.push 이게 없는 경우. 주문하기를 눌러서 데이터가
+            // 장바구니에 올라가도 새로고침이 발생할 때 장바구니에 적재된걸
+            // 확인할 수가 없는데 이걸  추가해서 자동으로 페이지를 강제이동시켜
+            //강제새로고침을 막아준다.
               }
           }>주문하기</button> 
           <button className="btn btn-danger" onClick={()=>{
