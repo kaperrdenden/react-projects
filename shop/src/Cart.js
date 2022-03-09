@@ -26,7 +26,7 @@ function Cart(props){
                     <td>{item.quan}</td>
                     <td>
                         <button onClick={()=> {
-                            props.dispatch({ type:'수량증가' })
+                            props.dispatch({ type:'수량증가'})
                           }}>+</button>
                         <button onClick={()=> {
                             props.dispatch({ type:'수량감소' })
@@ -42,6 +42,17 @@ function Cart(props){
       
     </tbody>
   </Table>
+{
+    props.alert열렸니 === true
+    ? ( <div className='my-alert2'>
+    <p>지금 구매하시면 신규할인 20%</p>
+    <button onClick={()=>{
+        props.dispatch({type:"닫기"});
+    }}>닫기</button>
+</div>)
+: null
+}
+ 
 </div>
     )
 }
@@ -50,7 +61,8 @@ function 함수명(state){
     // 이 함수는 redux store의 값들을 가져와서 props로 변환해주는 함수이다.
     // 즉 state를 props화 시켜준다.
     return {
-        state: state,
+        state: state.reducer,
+        alert열렸니 : state.reducer2,
         // redux store의 state값 중 name이라는 값을 가져와서 상품명에 담는다
 
     }

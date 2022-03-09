@@ -7,7 +7,20 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter,HashRouter } from 'react-router-dom';
  
 import { Provider } from 'react-redux';
-import {createStore} from 'redux';
+import {createStore, combineReducers} from 'redux';
+
+let alert초기값 = true;
+
+function reducer2(state = alert초기값, action){
+
+  if (action.type === '닫기'){
+    return false;
+  } 
+  else {
+    return state;
+  }
+  
+}
 
 let 기본state = [
   {id : 0, name: '멋진신발', quan: 2},
@@ -33,14 +46,10 @@ function reducer(state = 기본state, 액션){
     } else {
       return state;
     }
-      
-      
-        
-  
 }
 
-let store = createStore(reducer);
-
+let store = createStore(combineReducers({reducer, reducer2}));
+// 두개의 리듀서를 엮어준다.
 
 ReactDOM.render(
   <React.StrictMode>
