@@ -28,6 +28,9 @@ function Cart(props){
                         <button onClick={()=> {
                             props.dispatch({ type:'수량증가' })
                           }}>+</button>
+                        <button onClick={()=> {
+                            props.dispatch({ type:'수량감소' })
+                          }}>-</button>
 
                     </td>
                     

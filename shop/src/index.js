@@ -19,10 +19,17 @@ function reducer(state = 기본state, 액션){
     if ( 액션.type === '수량증가' ){
       let coppiedArray = [...state];
       coppiedArray[0].quan++;
-
       return coppiedArray;
+    } else if(액션.type === '수량감소'){
+      // console.log(state[0].quan);
+        if (state[0].quan  > 0){
+          let coppiedArray = [...state];
+          coppiedArray[0].quan--;
+          return coppiedArray;
+        }
+        return state;
     } else {
-      return 기본state;
+      return state;
     }
       
       
