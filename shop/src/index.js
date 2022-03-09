@@ -30,7 +30,15 @@ let 기본state = [
 
 function reducer(state = 기본state, 액션){
               // state = 기본state 이건 dafault 파라미터 문법. 데이터초기값
-    if ( 액션.type === '수량증가' ){
+    
+      if ( 액션.type === '항목추가'){
+        let coppiedArray = [...state];
+        console.log(액션.payload);
+        coppiedArray.push(액션.payload)
+        return coppiedArray;
+      }
+    
+      else if ( 액션.type === '수량증가' ){
       let coppiedArray = [...state];
       coppiedArray[0].quan++;
 
