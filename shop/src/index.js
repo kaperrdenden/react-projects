@@ -12,6 +12,7 @@ import {createStore} from 'redux';
 let 기본state = [
   {id : 0, name: '멋진신발', quan: 2},
   {id : 1, name: '멋진신발', quan: 2},
+  {id : 2, name: '멋진신발', quan: 4},
 ]
 
 function reducer(state = 기본state, 액션){
@@ -19,6 +20,7 @@ function reducer(state = 기본state, 액션){
     if ( 액션.type === '수량증가' ){
       let coppiedArray = [...state];
       coppiedArray[0].quan++;
+
       return coppiedArray;
     } else if(액션.type === '수량감소'){
       // console.log(state[0].quan);
