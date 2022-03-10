@@ -1,7 +1,12 @@
 import React from 'react';
 import {Table}  from 'react-bootstrap';
-import { connect } from 'react-redux';
+import { connect, useSelector, useDispatch } from 'react-redux';
 function Cart(props){
+
+    let state = useSelector((state)=> state);
+    // console.log(state);
+    // 리덕스에있는 모든 state
+    let dispatch = useDispatch();
     return (
      
             <div>
@@ -18,7 +23,7 @@ function Cart(props){
     <tbody>
         
         {
-            props.state.map((item, i)=>{
+            state.reducer.map((item, i)=>{
                 return(
                    <tr key={i}>
                     <td>{item.id}</td>
@@ -26,10 +31,10 @@ function Cart(props){
                     <td>{item.quan}</td>
                     <td>
                         <button onClick={()=> {
-                            props.dispatch({ type:'수량증가'})
+                            dispatch({ type:'수량증가'})
                           }}>+</button>
                         <button onClick={()=> {
-                            props.dispatch({ type:'수량감소' })
+                            dispatch({ type:'수량감소' })
                           }}>-</button>
 
                     </td>
@@ -57,16 +62,16 @@ function Cart(props){
     )
 }
 
-function 함수명(state){
-    // 이 함수는 redux store의 값들을 가져와서 props로 변환해주는 함수이다.
-    // 즉 state를 props화 시켜준다.
-    return {
-        state: state.reducer,
-        alert열렸니 : state.reducer2,
-        // redux store의 state값 중 name이라는 값을 가져와서 상품명에 담는다
+// function 함수명(state){
+//     // 이 함수는 redux store의 값들을 가져와서 props로 변환해주는 함수이다.
+//     // 즉 state를 props화 시켜준다.
+//     return {
+//         state: state.reducer,
+//         alert열렸니 : state.reducer2,
+//         // redux store의 state값 중 name이라는 값을 가져와서 상품명에 담는다
 
-    }
-}
-export default connect(함수명)(Cart)
+//     }
+// }
+// export default connect(함수명)(Cart)
 
-// export default Cart;
+export default Cart;
