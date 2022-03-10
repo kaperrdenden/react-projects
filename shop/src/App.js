@@ -15,7 +15,7 @@ function App() {
   let [shoes, shoes변경] = useState(Data);
   let [재고,재고변경] = useState([10,11,12]);
 
-  let itemIdCount = useRef(3);
+  let itemIdCount = useRef(2);
 
   console.log(shoes);
   return (
