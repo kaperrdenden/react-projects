@@ -17,7 +17,7 @@ function App() {
 
   let itemIdCount = useRef(2);
 
-  console.log(shoes);
+ 
   return (
     <div className="App">
       <Navbar bg="light" expand="lg">

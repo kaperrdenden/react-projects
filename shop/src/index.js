@@ -25,26 +25,38 @@ function reducer2(state = alert초기값, action){
 let 기본state = [
   {id : 0, name: '멋진신발', quan: 2},
   {id : 1, name: '멋진신발', quan: 2},
-  {id : 2, name: '멋진신발', quan: 4},
+
 ]
 
 function reducer(state = 기본state, 액션){
               // state = 기본state 이건 dafault 파라미터 문법. 데이터초기값
     
       if ( 액션.type === '항목추가'){
+        console.log('hi',액션.payload);
+        let coppiedArray = [...state];
+
+        let indexOfRepeated = null;
         
+  
+        for(let i=0; i<coppiedArray.length; i++){
+       
+          if(coppiedArray[i].id == 액션.payload.id){
+            indexOfRepeated = i;
+            break;
+          }  
+        }
 
-        let checkRepeatedId = state.map((item,i)=>{
+        if(indexOfRepeated){
+          coppiedArray[indexOfRepeated].quan++;
+        }else{
+          coppiedArray.push(액션.payload);
+        }
 
-          return (item.id === 액션.payload.id 
-                  ? {id:item.id, name:item.name, quan:item.quan + Number(액션.payload.quan)}
-                  : item
-                  )
-        }) 
-        return checkRepeatedId;
-      
-     
-    
+        console.log('hi',coppiedArray);
+         return coppiedArray;
+        
+        
+        
       }
     
       else if ( 액션.type === '수량증가' ){
@@ -53,10 +65,11 @@ function reducer(state = 기본state, 액션){
 
       return coppiedArray;
     } else if(액션.type === '수량감소'){
+      let coppiedArray = [...state];
       // console.log(state[0].quan);
-        if (state[0].quan  > 0){
-          let coppiedArray = [...state];
-          액션.데이터.quan--;
+        if (coppiedArray[액션.데이터].quan > 0){
+          // let coppiedArray = [...state];
+          coppiedArray[액션.데이터].quan--;
           return coppiedArray;
         }
         return state;

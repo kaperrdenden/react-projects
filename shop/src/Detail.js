@@ -47,7 +47,7 @@ function Detail(props ){
         }
     },[alert]);
     let { id } = useParams();
-    console.log(+id+1,"params");
+  
     let history = useHistory();
     let sellectedShoe = null;
     
@@ -55,7 +55,7 @@ function Detail(props ){
     let 찾은상품 = props.shoes.find(function(상품){
         return 상품.id == id
       });
-      console.log(찾은상품,"찾은상품");
+    
     // console.log(sellectedShoe);
     return(
       <div className="container">
@@ -81,42 +81,24 @@ function Detail(props ){
         </div>
         <div className="col-md-6 mt-4">
 
-          <form>
-              <input
-                placeholder='상품명' 
-                onChange={(e)=>{
-                    setOrder({
-                        ...order,
-                        itemTitle:e.target.value
-                    });
-                    console.log(order.itemTitle);
-                }}
-              />
-              <p>{찾은상품.content}</p>
-              <input 
-                placeholder='수량'
-                onChange={(e)=>{
-                    setOrder({
-                        ...order,
-                        itemQuan:e.target.value
-                    });
-                    console.log(order);
-                }}
-                />
        
+              <h4>{찾은상품.title}</h4>
+              <p>{찾은상품.content}</p>
+            
             {/* <h4 className="pt-5 red">{찾은상품.title}</h4> */}
             
             {/* <p>{찾은상품.price}</p> */}
-          </form>
+        
           <Info 재고={props.재고}></Info>
 
           <button className="btn btn-danger" onClick={
               ()=>{
                   props.재고변경([9,10,11]);
-                  props.dispatch({type: '항목추가', payload: {id:props.itemIdCount.current, name:order.itemTitle,
-                    quan: order.itemQuan
+                  console.log("찾은상품:",찾은상품);
+                  props.dispatch({type: '항목추가', payload: {id:찾은상품.id, name:찾은상품.title,
+                    quan: 1,
                 }
-                
+             
             });
             props.itemIdCount.current++;
             history.push('/cart');
