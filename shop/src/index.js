@@ -36,15 +36,15 @@ function reducer(state = 기본state, 액션){
         let coppiedArray = [...state];
 
         let indexOfRepeated = null;
-        
-  
         for(let i=0; i<coppiedArray.length; i++){
-       
           if(coppiedArray[i].id == 액션.payload.id){
             indexOfRepeated = i;
             break;
           }  
         }
+        // 이걸 array.findIndex 를 이용하면 간단하게 할 수 있었다..ㅠㅠ
+        // findIndex는 특정 조건을 만족한 것의 인덱스 번호를 반환해준다
+        // 만약 없으면 0
 
         if(indexOfRepeated){
           coppiedArray[indexOfRepeated].quan++;
