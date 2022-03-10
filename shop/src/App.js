@@ -119,7 +119,7 @@ function Card(props){
       // 디테일페이지로 보내줍니다.
     }}>
      
-      <img src={"https://codingapple1.github.io/shop/shoes" + (props.i + 1) + ".jpg"} width="100%"/>
+      <img src={"https://codingapple1.github.io/shop/shoes" + (props.shoe.id) + ".jpg"} width="100%"/>
     <h4>{props.shoe.title}</h4>
     <p>{props.shoe.price}</p>
    <Text/>
