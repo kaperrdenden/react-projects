@@ -47,6 +47,7 @@ function Detail(props ){
         }
     },[alert]);
     let { id } = useParams();
+    console.log(+id+1,"params");
     let history = useHistory();
     let sellectedShoe = null;
     
@@ -54,6 +55,7 @@ function Detail(props ){
     let 찾은상품 = props.shoes.find(function(상품){
         return 상품.id == id
       });
+      console.log(찾은상품,"찾은상품");
     // console.log(sellectedShoe);
     return(
       <div className="container">
@@ -62,7 +64,7 @@ function Detail(props ){
         <제목 className='red' >상세페이지</제목>
       </박스>
       {input}
-      <input onChange={(e)=>{ setInput(e.target.value) }}/>
+     
       {
           alert 
           ? ( <div className='my-alert2'>

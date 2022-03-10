@@ -5,7 +5,7 @@ import React, { useContext, useRef, useState } from 'react';
 import Data from "./data.js";
 import Detail from './Detail';
 import axios from 'axios';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link, Route, Switch, useHistory } from 'react-router-dom';
 
 import Cart from './Cart';
 export let 재고context = React.createContext();
@@ -110,10 +110,14 @@ function App() {
 function Card(props){
   
   let 재고 = useContext(재고context);
-  
+  let history = useHistory();
   return(
  
-    <div className='col-md-4'>
+    <div className='col-md-4'  onClick={()=>{
+      console.log(props.i+1,'here');
+      history.push('/detail/' + (props.i + 1))
+      // 디테일페이지로 보내줍니다.
+    }}>
      
       <img src={"https://codingapple1.github.io/shop/shoes" + (props.i + 1) + ".jpg"} width="100%"/>
     <h4>{props.shoe.title}</h4>
