@@ -37,7 +37,7 @@ function reducer(state = 기본state, 액션){
         let checkRepeatedId = state.map((item,i)=>{
 
           return (item.id === 액션.payload.id 
-                  ? {id:item.id, name:item.name, quan:++item.quan}
+                  ? {id:item.id, name:item.name, quan:item.quan + Number(액션.payload.quan)}
                   : item
                   )
         }) 
