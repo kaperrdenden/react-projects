@@ -9,7 +9,12 @@ function App() {
     </div>
   );
 }
-
+function Nav(){
+  return(
+    <>
+    </>
+  )
+}
 
 
 export default App;
