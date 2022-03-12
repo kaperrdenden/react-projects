@@ -1,0 +1,7 @@
+.homepage-imgs img {
+  width: 100%;
+}
+.homepage-imgs {
+  display: flex;
+  justify-content: space-between;
+}
