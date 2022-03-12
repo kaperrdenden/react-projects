@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function Loginform(){
-    
+    let history = useHistory();
     let [logindata, setLogindata] = useState({
       id:'',
       password:'',
@@ -51,6 +52,7 @@ function Loginform(){
             onClick={()=>{
               if (logindata.id.length > 6 && logindata.password.length > 6){
                 console.log("corret");
+                history.push('/homepage')
               }
               setLogindata(
                 {
