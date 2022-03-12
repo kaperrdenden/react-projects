@@ -13,9 +13,9 @@ function Nav(){
   return(
     <>
       <div>
-        <div className='column'>hoem</div>
-        <div className='column'></div>
-        <div className='column'></div>
+        <div className='column'>home</div>
+        <div className='column'>detail</div>
+        <div className='column'>뒤로가기</div>
       </div>
     </>
   )
