@@ -13,7 +13,7 @@ function Nav(){
   return(
     <>
       <div>
-        <div className='column'></div>
+        <div className='column'>hoem</div>
         <div className='column'></div>
         <div className='column'></div>
       </div>
