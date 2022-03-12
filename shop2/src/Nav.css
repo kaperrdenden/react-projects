@@ -7,3 +7,6 @@
   display: flex;
   justify-content: space-between;
 }
+.homepage-imgs img {
+  width: 33%;
+}
