@@ -13,7 +13,9 @@ function Nav(){
   return(
     <>
       <div>
-        
+        <div className='column'></div>
+        <div className='column'></div>
+        <div className='column'></div>
       </div>
     </>
   )
