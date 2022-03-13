@@ -6,6 +6,7 @@ import Nav from './Nav';
 import { Route,Link,Swtitch } from 'react-router-dom';
 import Shoesdata from './Shoesdata';
 import Card from './Card';
+import Detail from './Detail';
 
 
 function App() {
@@ -20,11 +21,21 @@ function App() {
         <Loginform />
       </Route>
 
-      <Route path='/homepage'>
+      <Route path='/homepage' >
         <Nav />
-        <Card shoes={shoes}/>
+        {
+          shoes.map((shoe,i)=>{
+            return(
+
+              <Card shoe={shoe} i={i} key={i} />
+            )
+          })
+        }
       </Route>
-    
+      
+      <Route path='/detail/:id'>
+          <Detail shoes={shoes} />
+      </Route>
       
     </div>
   );
