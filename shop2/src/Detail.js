@@ -6,7 +6,7 @@ function Detail(props){
     return(
         <div className="detail">
          
-            <img src={'https://codingapple1.github.io/shop/shoes' + (+id+1) + '.jpg'} />
+            <img src={'https://codingapple1.github.io/shop/shoes' +(+id+1)+ '.jpg'} />
             {props.shoes[1].title}
 
         </div>
