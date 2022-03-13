@@ -12,15 +12,25 @@ function Detail(props){
             <div> 
                 
                <h4>{props.shoes[id].title}</h4> 
+               <p>재고:{props.stock[id]}</p>
                <span> {props.shoes[id].price}원 </span>
  
             </div>
             <button onClick={()=>{
+                // console.log(props.stock[id]);
+                let coppiedArray = [...props.stock];
+                coppiedArray[id] -= 1;
+                props.setStock(coppiedArray);
+
                 history.push('/cart');
             }}>
                 주문하기
             </button>
-            <button>
+            <button
+                onClick={()=>{
+                    history.goBack();
+                }}
+            >
                 뒤로가기
             </button>
         </div>

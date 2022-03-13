@@ -7,11 +7,11 @@ import { Route,Link,Swtitch } from 'react-router-dom';
 import Shoesdata from './Shoesdata';
 import Card from './Card';
 import Detail from './Detail';
-
+import Cart from './Cart';
 
 function App() {
   let [shoes, setShoes] = useState(Shoesdata);
-  
+  let [stock, setStock] = useState([10,12,14]);
   console.log(shoes);
 
   return (
@@ -34,11 +34,11 @@ function App() {
       </Route>
       
       <Route path='/detail/:id'>
-          <Detail shoes={shoes} />
+          <Detail shoes={shoes} stock={stock} setStock={setStock} />
       </Route>
       
-      <Route>
-        
+      <Route path='/cart'>
+        <Cart shoes={shoes}/>
       </Route>
     </div>
   );
