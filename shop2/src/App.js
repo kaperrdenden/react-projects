@@ -37,6 +37,9 @@ function App() {
           <Detail shoes={shoes} />
       </Route>
       
+      <Route>
+        
+      </Route>
     </div>
   );
 }

@@ -29,7 +29,7 @@ function Detail(props ){
     let [누른탭, 누른탭변경] = useState(0);
     let [스위치, 스위치변경] = useState(false);
     let 재고 = useContext(재고context);
-   
+   4
     useEffect(()=>{
 
 
