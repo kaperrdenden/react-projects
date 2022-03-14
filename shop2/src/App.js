@@ -12,6 +12,21 @@ import Cart from './Cart';
 function App() {
   let [shoes, setShoes] = useState(Shoesdata);
   let [stock, setStock] = useState([10,12,14]);
+  let [cartdata, setCartdata] = useState(
+    [
+    {
+        id:5,
+        title:"temp item1",
+        quan: 5,
+    
+    },
+    {
+        id:4,
+        title:"temp item2",
+        quan: 2,
+    },
+]
+    )
   console.log(shoes);
 
   return (
@@ -34,11 +49,11 @@ function App() {
       </Route>
       
       <Route path='/detail/:id'>
-          <Detail shoes={shoes} stock={stock} setStock={setStock} />
+          <Detail shoes={shoes} cartdata={cartdata} setCartdata={setCartdata} stock={stock} setStock={setStock} />
       </Route>
       
       <Route path='/cart'>
-        <Cart shoes={shoes}/>
+        <Cart shoes={shoes} cartdata={cartdata} setCartdata={setCartdata}/>
       </Route>
     </div>
   );

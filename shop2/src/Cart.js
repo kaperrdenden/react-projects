@@ -1,21 +1,7 @@
 import { useState } from 'react';
 import './Cart.css';
 function Cart(props) {
-    let [cartdata, setCartdata] = useState(
-    [
-    {
-        id:5,
-        title:"temp item1",
-        quan: 5,
-    
-    },
-    {
-        id:4,
-        title:"temp item2",
-        quan: 2,
-    },
-]
-    )
+   
     return(
         <>
             <div className="table">
@@ -26,7 +12,7 @@ function Cart(props) {
                     <h4>수량</h4>
 
                 </section>
-                {cartdata.map((item, i)=>{
+                {props.cartdata.map((item, i)=>{
                     return(
                      <section key={i} >
                         <h4>{item.id}</h4>
@@ -38,9 +24,9 @@ function Cart(props) {
                         <button
                             onClick={
                                 ()=>{
-                                    let coppiedArray = [...cartdata];
+                                    let coppiedArray = [...props.cartdata];
                                     coppiedArray[i].quan++;
-                                   setCartdata(
+                                   props.setCartdata(
                                         coppiedArray
                                    )
                                 }
@@ -52,9 +38,9 @@ function Cart(props) {
                          onClick={
                             ()=>{
                                 if( item.quan > 0){
-                                    let coppiedArray = [...cartdata];
+                                    let coppiedArray = [...props.cartdata];
                                     coppiedArray[i].quan--;
-                                   setCartdata(
+                                   props.setCartdata(
                                         coppiedArray
                                    )
                                 }
@@ -68,7 +54,7 @@ function Cart(props) {
          
                     )
                 })}
-              {console.log(cartdata)}
+              {/* {console.log(cartdata)} */}
                    
                
             </div>
