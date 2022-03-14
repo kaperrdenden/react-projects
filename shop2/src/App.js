@@ -36,7 +36,7 @@ function App() {
         <Loginform />
       </Route>
 
-      <Route path='/homepage' >
+      <Route path='/homepage' exact>
         <Nav />
         {
           shoes.map((shoe,i)=>{
